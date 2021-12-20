@@ -12,3 +12,12 @@ Many solutions require the SharePoint Online Management Shell.
 ```PowerShell
 Connect-SPOService -Url https://contoso-admin.sharepoint.com
 ```
+
+## Execution Policies
+
+File <<file name> cannot be loaded. The file <<file name>> is not
+digitally signed. You cannot run this script on the current system. For more information about running scripts and setting execution policy
+
+```PowerShell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```

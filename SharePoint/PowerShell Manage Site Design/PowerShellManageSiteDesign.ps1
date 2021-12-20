@@ -1,5 +1,10 @@
 Get-Module -Name Microsoft.Online.SharePoint.PowerShell -ListAvailable | Select-Object Name, Version
 # ==================================================================================
+# IF EXECUTION POLICY ERROR, RUN THIS
+# ==================================================================================
+# Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+# ==================================================================================
 #  VARIABLES
 # ==================================================================================
 $varTemplateAdminUrl = 'https://tenantname-admin.sharepoint.com'
@@ -10,6 +15,7 @@ $varSiteDesignDescription = "<<Give your site design a description>>"
 
 # ==================================================================================
 # GENERATE SITE SCRIPT FROM AN EXISTING SITE
+# https://docs.microsoft.com/en-us/powershell/module/sharepoint-online/get-spositescriptfromweb?view=sharepoint-ps
 # ==================================================================================
 Connect-SPOService -Url $varTemplateAdminUrl
 $siteScriptXML = Get-SPOSiteScriptFromWeb -WebUrl $varTemplateSiteUrl -IncludedLists ("Documents", "Lists/List Name")

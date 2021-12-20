@@ -16,24 +16,32 @@ $siteScriptXML = Get-SPOSiteScriptFromWeb -WebUrl $varTemplateSiteUrl -IncludedL
 
 # ==================================================================================
 # CREATE SITE DESIGN IN DESTINATION SITE
+# https://docs.microsoft.com/en-us/powershell/module/sharepoint-online/add-spositedesign?view=sharepoint-ps
 # ==================================================================================
 $siteScriptXmlResult = Add-SPOSiteScript -Title $varSiteScript1Name -Content $siteScriptXML
-
 Add-SPOSiteDesign -Title $varSiteDesignName -WebTemplate "64" -SiteScripts $siteScriptXmlResult.Id -Description $varSiteDesignDescription
 
 # ==================================================================================
-# UPDATE SITE DESIGN IN DESTINATION SITE (Set the version)
+# GET EXISTING SITE DESIGN ID
+# https://docs.microsoft.com/en-us/powershell/module/sharepoint-online/get-spositedesign?view=sharepoint-ps
+# ==================================================================================
+#Get-SPOSiteDesign
+
+# ==================================================================================
+# GET EXISTING SITE SCRIPT ID
+# https://docs.microsoft.com/en-us/powershell/module/sharepoint-online/get-spositescript?view=sharepoint-ps
+# ==================================================================================
+#Get-SPOSiteScript
+
+# ==================================================================================
+# UPDATE SITE DESIGN IN DESTINATION SITE (Don't forget to increment the version)
+# https://docs.microsoft.com/en-us/powershell/module/sharepoint-online/set-spositedesign?view=sharepoint-ps
 # ==================================================================================
 #Get-Content $siteScriptXML Set-SPOSiteScript -Identity "3747dd8c-f161-4340-be75-d6e5b16bc5de" -
 #Set-SPOSiteDesign -Identity 'a54388af-063e-4662-b340-e2500ee74902' -SiteScripts "3747dd8c-f161-4340-be75-d6e5b16bc5de" -Version 2
 
 # ==================================================================================
-# GET EXISTING SITE DESIGN ID
-# ==================================================================================
-Get-SPOSiteDesign
-Get-SPOSiteScript
-
-# ==================================================================================
 # REMOVE EXISTING SITE DESIGN
+# https://docs.microsoft.com/en-us/powershell/module/sharepoint-online/remove-spositedesign?view=sharepoint-ps
 # ==================================================================================
 #Remove-SPOSiteDesign -Identity 'a54388af-063e-4662-b340-e2500ee74902'

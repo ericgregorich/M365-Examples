@@ -1,0 +1,45 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+  "elmType": "button",
+  "customRowAction": {
+    "action": "executeFlow",
+    "actionParams": "{\"id\": \"73faee6f-f381-4c8e-b7b9-e7974a8d5948\"}"
+  },
+  "attributes": {
+    "class": "ms-fontColor-themePrimary ms-fontColor-teal"
+  },
+  "style": {
+    "border": "none",
+    "background-color": "transparent",
+    "cursor": "pointer",
+    "visibility": {
+      "operator": "?",
+      "operands": [
+        {
+          "operator": "==",
+          "operands": [
+            "[$_ModerationStatus]",
+            "Draft"
+          ]
+        },
+        "visible",
+        "hidden"
+      ]
+    }
+  },
+  "children": [
+    {
+      "elmType": "span",
+      "attributes": {
+        "iconName": "Flow"
+      },
+      "style": {
+        "padding-right": "6px"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "Start Approval"
+    }
+  ]
+}
